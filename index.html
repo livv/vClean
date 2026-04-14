@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vClean - Xcode 编译目录清理工具</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #007AFF;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #007AFF;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background-color: white;
+            color: #667eea;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+            color: #333;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            background-color: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            color: white;
+        }
+
+        .feature-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .screenshot {
+            background-color: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .screenshot img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .privacy-notice {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            border-radius: 12px;
+            margin: 40px 0;
+        }
+
+        .privacy-notice h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .privacy-notice p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .privacy-btn {
+            display: inline-block;
+            background-color: white;
+            color: #f5576c;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+
+        .privacy-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .download-section {
+            background-color: white;
+            padding: 60px 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .download-section h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .download-section p {
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .version-info {
+            display: inline-block;
+            background-color: #f0f8ff;
+            padding: 10px 20px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            color: #007AFF;
+            font-weight: 500;
+        }
+
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+        }
+
+        .copyright {
+            opacity: 0.6;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">vClean</div>
+            <div class="nav-links">
+                <a href="#features">功能特色</a>
+                <a href="#screenshot">截图展示</a>
+                <a href="#download">下载</a>
+                <a href="PrivacyPolicy.html">隐私政策</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero 区域 -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>vClean</h1>
+            <p>专业的 Xcode 编译目录清理工具，释放宝贵的磁盘空间</p>
+            <a href="#download" class="download-btn">立即下载</a>
+        </div>
+    </section>
+
+    <!-- 功能特色 -->
+    <section id="features" class="section">
+        <div class="container">
+            <h2 class="section-title">功能特色</h2>
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">📁</div>
+                    <h3>智能扫描</h3>
+                    <p>快速扫描您的 Xcode 编译目录，智能分析文件夹大小和最后访问时间，帮助您识别可以安全清理的文件。</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🗑️</div>
+                    <h3>安全清理</h3>
+                    <p>安全删除不需要的编译文件和缓存，支持批量操作，让您的开发环境保持整洁高效。</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>可视化分析</h3>
+                    <p>以图表形式展示磁盘空间使用情况，直观显示各个编译目录的大小分布，帮助您做出明智的清理决策。</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>精准筛选</h3>
+                    <p>支持按文件大小、访问时间、项目名称等多种条件筛选，精确找到需要清理的目标。</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>完全隐私</h3>
+                    <p>所有操作都在本地完成，不会收集任何个人信息，完全保护您的隐私和数据安全。</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>高效性能</h3>
+                    <p>优化的扫描算法，快速处理大量文件，界面简洁直观，操作简单便捷。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 截图展示 -->
+    <section id="screenshot" class="section">
+        <div class="container">
+            <h2 class="section-title">截图展示</h2>
+            <div class="screenshot">
+                <img src="vClean_sample.png"
+                     alt="vClean 应用截图"
+                     style="width: 100%; max-width: 800px;">
+                <p style="margin-top: 20px; color: #666;">简洁直观的用户界面，轻松管理 Xcode 编译目录</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 隐私保护 -->
+    <section class="section">
+        <div class="container">
+            <div class="privacy-notice">
+                <h2>🛡️ 完全隐私保护</h2>
+                <p>我们承诺不收集任何个人信息，所有数据都在您的设备上本地处理</p>
+                <a href="PrivacyPolicy.html" class="privacy-btn">查看详细隐私政策</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 下载区域 -->
+    <section id="download" class="section">
+        <div class="container">
+            <div class="download-section">
+                <h2>🚀 立即开始使用</h2>
+                <div class="version-info">最新版本：v1.0.0 | 兼容 macOS 15.6 及以上</div>
+                <p>免费下载，无需注册，开箱即用</p>
+                <a href="#" class="download-btn" onclick="alert('请在 Mac App Store 中下载 vClean 应用')">Mac App Store 下载</a>
+                <p style="margin-top: 20px; font-size: 14px; color: #999;">
+                    下载前请确保您的设备运行 macOS 15.6 或更高版本
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#features">功能特色</a>
+                <a href="#screenshot">截图展示</a>
+                <a href="#download">下载</a>
+                <a href="PrivacyPolicy.html">隐私政策</a>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2026 vClean. All rights reserved. | 保留所有权利</p>
+                <p style="margin-top: 10px;">最后更新：2026年4月14日</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // 页面滚动时导航栏效果
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+    </script>
+</body>
+</html>
