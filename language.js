@@ -56,8 +56,8 @@ class LanguageManager {
         // 隐私政策页面
         'privacy.header.title': 'vClean 隐私政策',
         'privacy.header.subtitle': '我们承诺保护您的隐私，所有操作均在本地完成',
-        'privacy.last_updated': '最后更新日期：',
-        'privacy.effective_date': '生效日期：',
+        'privacy.last_updated': '最后更新日期：2026年4月14日',
+        'privacy.effective_date': '生效日期：2026年4月14日',
         'privacy.intro': '感谢您选择 vClean 应用（以下简称"本应用"）。我们高度重视您的隐私保护，本应用承诺不会收集、存储、传输或分享任何个人数据。',
         'privacy.section1.title': '1. 信息收集政策',
         'privacy.section1.content': '本应用完全尊重并保护用户隐私，<strong>不会收集任何形式的个人信息</strong>，包括但不限于：',
@@ -157,8 +157,8 @@ class LanguageManager {
         // 隐私政策页面
         'privacy.header.title': 'vClean Privacy Policy',
         'privacy.header.subtitle': 'We are committed to protecting your privacy; all operations are performed locally.',
-        'privacy.last_updated': 'Last updated:',
-        'privacy.effective_date': 'Effective date:',
+        'privacy.last_updated': 'Last updated: April 14, 2026',
+        'privacy.effective_date': 'Effective date: April 14, 2026',
         'privacy.intro': 'Thank you for choosing the vClean app (hereinafter referred to as "this app"). We take your privacy seriously. This app does not collect, store, transmit, or share any personal data.',
         'privacy.section1.title': '1. Information Collection Policy',
         'privacy.section1.content': 'This app fully respects and protects user privacy and <strong>does not collect any personal information</strong>, including but not limited to:',
