@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>vClean - Xcode 编译目录清理工具</title>
+    <link rel="icon" href="icon.png" type="image/png">
+    <link rel="apple-touch-icon" href="icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <style>
         * {
             margin: 0;
@@ -69,6 +73,30 @@
         .hero-content {
             max-width: 800px;
             margin: 0 auto;
+        }
+
+        .hero-logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+            border-radius: 24px;
+            overflow: hidden;
+            animation: logoFloat 3s ease-in-out infinite;
+        }
+
+        .hero-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @keyframes logoFloat {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
         }
 
         .hero h1 {
@@ -315,6 +343,9 @@
     <!-- Hero 区域 -->
     <section class="hero">
         <div class="hero-content">
+            <div class="hero-logo">
+                <img src="icon.png" alt="vClean Logo">
+            </div>
             <h1>vClean</h1>
             <p>专业的 Xcode 编译目录清理工具，释放宝贵的磁盘空间</p>
             <a href="#download" class="download-btn">立即下载</a>
