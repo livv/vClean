@@ -138,6 +138,23 @@
             padding: 80px 0;
         }
 
+        /* 各板块独立背景，便于视觉分区 */
+        .section--features {
+            background-color: #edf2f7;
+        }
+
+        .section--screenshot {
+            background-color: #f7f4ef;
+        }
+
+        .section--privacy {
+            background-color: #f3f0fa;
+        }
+
+        .section--download {
+            background-color: #eaf3ff;
+        }
+
         .section-title {
             text-align: center;
             font-size: 36px;
@@ -353,7 +370,7 @@
     </section>
 
     <!-- 功能特色 -->
-    <section id="features" class="section">
+    <section id="features" class="section section--features">
         <div class="container">
             <h2 class="section-title">功能特色</h2>
             <div class="features">
@@ -397,7 +414,7 @@
     </section>
 
     <!-- 截图展示 -->
-    <section id="screenshot" class="section">
+    <section id="screenshot" class="section section--screenshot">
         <div class="container">
             <h2 class="section-title">截图展示</h2>
             <div class="screenshot">
@@ -410,7 +427,7 @@
     </section>
 
     <!-- 隐私保护 -->
-    <section class="section">
+    <section class="section section--privacy">
         <div class="container">
             <div class="privacy-notice">
                 <h2>🛡️ 完全隐私保护</h2>
@@ -421,7 +438,7 @@
     </section>
 
     <!-- 下载区域 -->
-    <section id="download" class="section">
+    <section id="download" class="section section--download">
         <div class="container">
             <div class="download-section">
                 <h2>🚀 立即开始使用</h2>
