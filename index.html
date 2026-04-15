@@ -50,6 +50,23 @@
         .nav-links {
             display: flex;
             gap: 30px;
+            align-items: center;
+        }
+
+        .lang-switch {
+            background: none;
+            border: 1px solid #007AFF;
+            color: #007AFF;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .lang-switch:hover {
+            background-color: #007AFF;
+            color: white;
         }
 
         .nav-links a {
@@ -349,10 +366,11 @@
         <div class="nav-container">
             <a href="#" class="logo" style="text-decoration: none;">vClean</a>
             <div class="nav-links">
-                <a href="#features">功能特色</a>
-                <a href="#screenshot">截图展示</a>
-                <a href="#download">下载</a>
-                <a href="PrivacyPolicy.html">隐私政策</a>
+                <a href="#features" data-lang="nav.features">功能特色</a>
+                <a href="#screenshot" data-lang="nav.screenshot">截图展示</a>
+                <a href="#download" data-lang="nav.download">下载</a>
+                <a href="PrivacyPolicy.html" data-lang="nav.privacy">隐私政策</a>
+                <button id="lang-switch-btn" class="lang-switch">English</button>
             </div>
         </div>
     </nav>
@@ -363,51 +381,51 @@
             <div class="hero-logo">
                 <img src="icon.png" alt="vClean Logo">
             </div>
-            <h1>vClean</h1>
-            <p>专业的 Xcode 编译目录清理工具，释放宝贵的磁盘空间</p>
-            <a href="#download" class="download-btn">立即下载</a>
+            <h1 data-lang="hero.title">vClean</h1>
+            <p data-lang="hero.subtitle">专业的 Xcode 编译目录清理工具，释放宝贵的磁盘空间</p>
+            <a href="#download" class="download-btn" data-lang="hero.download-btn">立即下载</a>
         </div>
     </section>
 
     <!-- 功能特色 -->
     <section id="features" class="section section--features">
         <div class="container">
-            <h2 class="section-title">功能特色</h2>
+            <h2 class="section-title" data-lang="features.title">功能特色</h2>
             <div class="features">
                 <div class="feature-card">
                     <div class="feature-icon">📁</div>
-                    <h3>智能扫描</h3>
-                    <p>快速扫描您的 Xcode 编译目录，智能分析文件夹大小和最后访问时间，帮助您识别可以安全清理的文件。</p>
+                    <h3 data-lang="feature1.title">智能扫描</h3>
+                    <p data-lang="feature1.description">快速扫描您的 Xcode 编译目录，智能分析文件夹大小和最后访问时间，帮助您识别可以安全清理的文件。</p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon">🗑️</div>
-                    <h3>安全清理</h3>
-                    <p>安全删除不需要的编译文件和缓存，支持批量操作，让您的开发环境保持整洁高效。</p>
+                    <h3 data-lang="feature2.title">安全清理</h3>
+                    <p data-lang="feature2.description">安全删除不需要的编译文件和缓存，支持批量操作，让您的开发环境保持整洁高效。</p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon">📊</div>
-                    <h3>可视化分析</h3>
-                    <p>以图表形式展示磁盘空间使用情况，直观显示各个编译目录的大小分布，帮助您做出明智的清理决策。</p>
+                    <h3 data-lang="feature3.title">可视化分析</h3>
+                    <p data-lang="feature3.description">以图表形式展示磁盘空间使用情况，直观显示各个编译目录的大小分布，帮助您做出明智的清理决策。</p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon">🎯</div>
-                    <h3>精准筛选</h3>
-                    <p>支持按文件大小、访问时间、项目名称等多种条件筛选，精确找到需要清理的目标。</p>
+                    <h3 data-lang="feature4.title">精准筛选</h3>
+                    <p data-lang="feature4.description">支持按文件大小、访问时间、项目名称等多种条件筛选，精确找到需要清理的目标。</p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon">🔒</div>
-                    <h3>完全隐私</h3>
-                    <p>所有操作都在本地完成，不会收集任何个人信息，完全保护您的隐私和数据安全。</p>
+                    <h3 data-lang="feature5.title">完全隐私</h3>
+                    <p data-lang="feature5.description">所有操作都在本地完成，不会收集任何个人信息，完全保护您的隐私和数据安全。</p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon">⚡</div>
-                    <h3>高效性能</h3>
-                    <p>优化的扫描算法，快速处理大量文件，界面简洁直观，操作简单便捷。</p>
+                    <h3 data-lang="feature6.title">高效性能</h3>
+                    <p data-lang="feature6.description">优化的扫描算法，快速处理大量文件，界面简洁直观，操作简单便捷。</p>
                 </div>
             </div>
         </div>
@@ -416,12 +434,12 @@
     <!-- 截图展示 -->
     <section id="screenshot" class="section section--screenshot">
         <div class="container">
-            <h2 class="section-title">截图展示</h2>
+            <h2 class="section-title" data-lang="screenshot.title">截图展示</h2>
             <div class="screenshot">
                 <img src="vClean_sample.png"
                      alt="vClean 应用截图"
                      style="width: 100%; max-width: 800px;">
-                <p style="margin-top: 20px; color: #666;">简洁直观的用户界面，轻松管理 Xcode 编译目录</p>
+                <p style="margin-top: 20px; color: #666;" data-lang="screenshot.description">简洁直观的用户界面，轻松管理 Xcode 编译目录</p>
             </div>
         </div>
     </section>
@@ -430,9 +448,9 @@
     <section class="section section--privacy">
         <div class="container">
             <div class="privacy-notice">
-                <h2>🛡️ 完全隐私保护</h2>
-                <p>我们承诺不收集任何个人信息，所有数据都在您的设备上本地处理</p>
-                <a href="PrivacyPolicy.html" class="privacy-btn">查看详细隐私政策</a>
+                <h2 data-lang="privacy.title">🛡️ 完全隐私保护</h2>
+                <p data-lang="privacy.description">我们承诺不收集任何个人信息，所有数据都在您的设备上本地处理</p>
+                <a href="PrivacyPolicy.html" class="privacy-btn" data-lang="privacy.btn">查看详细隐私政策</a>
             </div>
         </div>
     </section>
@@ -441,11 +459,11 @@
     <section id="download" class="section section--download">
         <div class="container">
             <div class="download-section">
-                <h2>🚀 立即开始使用</h2>
-                <div class="version-info">最新版本：v1.0.0 | 兼容 macOS 15.6 及以上</div>
-                <p>免费下载，无需注册，开箱即用</p>
-                <a href="#" class="download-btn" onclick="alert('请在 Mac App Store 中下载 vClean 应用')">Mac App Store 下载</a>
-                <p style="margin-top: 20px; font-size: 14px; color: #999;">
+                <h2 data-lang="download.title">🚀 立即开始使用</h2>
+                <div class="version-info" data-lang="download.version">最新版本：v1.0.0 | 兼容 macOS 15.6 及以上</div>
+                <p data-lang="download.description">免费下载，无需注册，开箱即用</p>
+                <a href="#" class="download-btn" onclick="alert('请在 Mac App Store 中下载 vClean 应用')" data-lang="download.btn">Mac App Store 下载</a>
+                <p style="margin-top: 20px; font-size: 14px; color: #999;" data-lang="download.note">
                     下载前请确保您的设备运行 macOS 15.6 或更高版本
                 </p>
             </div>
@@ -456,18 +474,19 @@
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-links">
-                <a href="#features">功能特色</a>
-                <a href="#screenshot">截图展示</a>
-                <a href="#download">下载</a>
-                <a href="PrivacyPolicy.html">隐私政策</a>
+                <a href="#features" data-lang="nav.features">功能特色</a>
+                <a href="#screenshot" data-lang="nav.screenshot">截图展示</a>
+                <a href="#download" data-lang="nav.download">下载</a>
+                <a href="PrivacyPolicy.html" data-lang="nav.privacy">隐私政策</a>
             </div>
             <div class="copyright">
-                <p>&copy; 2026 vClean. All rights reserved. | 保留所有权利</p>
-                <p style="margin-top: 10px;">最后更新：2026年4月14日</p>
+                <p data-lang="footer.copyright">&copy; 2026 vClean. All rights reserved. | 保留所有权利</p>
+                <p style="margin-top: 10px;" data-lang="footer.updated">最后更新：2026年4月14日</p>
             </div>
         </div>
     </footer>
 
+    <script src="language.js"></script>
     <script>
         // 平滑滚动
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
