@@ -7,14 +7,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 vClean 是一个 macOS 应用程序的官方网站，该应用是专为 Xcode 开发者设计的编译目录清理工具。网站包含以下页面：
 
 - **index.html** - 主页面，展示应用功能特色、截图和下载信息
-- **PrivacyPolicy.html** - 隐私政策页面，详细说明应用的隐私保护承诺
+- **privacypolicy.html** - 隐私政策页面，详细说明应用的隐私保护承诺
 
 ## 项目结构
 
 ```
 vClean_pages/
 ├── index.html              # 主页面
-├── PrivacyPolicy.html      # 隐私政策页面
+├── privacypolicy.html      # 隐私政策页面
 ├── README.md              # 项目说明
 ├── vClean_sample.png      # 应用截图
 └── CLAUDE.md              # 本文件
